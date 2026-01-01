@@ -1,0 +1,591 @@
+/* SpeechToText.css */
+
+/* Main Page Wrapper - Scopes all styles to this page only */
+.speech-to-text-page {
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+/* Navbar Styles */
+.speech-to-text-page .deaf-talk-navbar {
+  background: linear-gradient(135deg, #7b68ee 0%, #6554d4 100%);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.speech-to-text-page .navbar-brand {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.speech-to-text-page .navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.speech-to-text-page .user-info {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.speech-to-text-page .user-icon {
+  font-size: 1.2rem;
+}
+
+.speech-to-text-page .user-name {
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.speech-to-text-page .logout-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.speech-to-text-page .logout-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.speech-to-text-page .accessibility-nav-badge {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+}
+
+/* Main Container */
+.speech-to-text-page .speech-container {
+  min-height: calc(100vh - 70px);
+  background: linear-gradient(135deg, #a8d8ea 0%, #7ec8e3 100%);
+  padding: 2rem 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated Background Icons */
+.speech-to-text-page .speech-bg-icon {
+  position: absolute;
+  font-size: 5rem;
+  opacity: 0.05;
+  animation: speech-float 20s infinite ease-in-out;
+  pointer-events: none;
+}
+
+.speech-to-text-page .speech-bg-icon:nth-child(1) {
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.speech-to-text-page .speech-bg-icon:nth-child(2) {
+  top: 60%;
+  left: 80%;
+  animation-delay: 5s;
+}
+
+.speech-to-text-page .speech-bg-icon:nth-child(3) {
+  top: 80%;
+  left: 20%;
+  animation-delay: 10s;
+}
+
+.speech-to-text-page .speech-bg-icon:nth-child(4) {
+  top: 30%;
+  right: 15%;
+  animation-delay: 15s;
+}
+
+@keyframes speech-float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(10deg);
+  }
+}
+
+/* Content Wrapper */
+.speech-to-text-page .speech-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Instructions Card */
+.speech-to-text-page .instructions-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: speech-slideInFromLeft 0.6s ease-out;
+}
+
+.speech-to-text-page .instructions-title {
+  color: #7b68ee;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.speech-to-text-page .instructions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.speech-to-text-page .instruction-item {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  color: #555;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.speech-to-text-page .instruction-item:last-child {
+  border-bottom: none;
+}
+
+.speech-to-text-page .instruction-item::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #5cb85c;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Main Card */
+.speech-to-text-page .speech-card {
+  background: white;
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  animation: speech-slideInFromRight 0.6s ease-out;
+}
+
+.speech-to-text-page .speech-title {
+  color: #333;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.speech-to-text-page .speech-title-highlight {
+  color: #0088ff;
+}
+
+/* Listening Badge */
+.speech-to-text-page .listening-badge {
+  text-align: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.speech-to-text-page .listening-badge.active {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+  color: white;
+  animation: speech-pulse 1.5s infinite;
+}
+
+.speech-to-text-page .listening-badge.inactive {
+  background: #f0f0f0;
+  color: #666;
+}
+
+@keyframes speech-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(255, 107, 107, 0);
+  }
+}
+
+/* Select Boxes */
+.speech-to-text-page .speech-select-box {
+  margin-bottom: 1.5rem;
+}
+
+.speech-to-text-page .speech-label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #555;
+}
+
+.speech-to-text-page .speech-select {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  border: 2px solid #e8e8e8;
+  font-size: 1rem;
+  background: #fafafa;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.speech-to-text-page .speech-select:hover:not(:disabled) {
+  border-color: #7b68ee;
+}
+
+.speech-to-text-page .speech-select:focus {
+  border-color: #0088ff;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 136, 255, 0.15);
+}
+
+.speech-to-text-page .speech-select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Features Info */
+.speech-to-text-page .features-info {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.speech-to-text-page .feature-info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.speech-to-text-page .feature-info-icon {
+  font-size: 1.5rem;
+}
+
+.speech-to-text-page .feature-info-text {
+  font-weight: 600;
+  color: #555;
+}
+
+/* Buttons */
+.speech-to-text-page .speech-button {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.speech-to-text-page .btn-start {
+  background: linear-gradient(135deg, #0088ff 0%, #0066cc 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 136, 255, 0.3);
+}
+
+.speech-to-text-page .btn-start:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 136, 255, 0.4);
+}
+
+.speech-to-text-page .btn-stop {
+  background: linear-gradient(135deg, #ff4757 0%, #ee3344 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
+  animation: speech-pulseButton 2s infinite;
+}
+
+.speech-to-text-page .btn-stop:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 71, 87, 0.4);
+}
+
+@keyframes speech-pulseButton {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(255, 71, 87, 0.5);
+  }
+}
+
+.speech-to-text-page .btn-back {
+  background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);
+}
+
+.speech-to-text-page .btn-back:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(108, 117, 125, 0.4);
+}
+
+.speech-to-text-page .btn-refresh {
+  width: auto;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  margin-top: 0;
+  background: linear-gradient(135deg, #0088ff 0%, #0066cc 100%);
+  color: white;
+}
+
+.speech-to-text-page .btn-refresh:hover {
+  transform: translateY(-1px);
+}
+
+/* Output Box */
+.speech-to-text-page .speech-output-box {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #e3f2fd 0%, #f0f8ff 100%);
+  min-height: 100px;
+  font-size: 1.1rem;
+  color: #333;
+  word-wrap: break-word;
+  border: 2px solid #d0e8ff;
+  transition: all 0.3s ease;
+  line-height: 1.6;
+}
+
+.speech-to-text-page .speech-output-box.empty {
+  color: #999;
+  font-style: italic;
+}
+
+/* Translation Box */
+.speech-to-text-page .loading-text {
+  margin-top: 1rem;
+  color: #0088ff;
+  font-weight: 600;
+  text-align: center;
+  animation: speech-fadeInOut 1.5s infinite;
+}
+
+@keyframes speech-fadeInOut {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.speech-to-text-page .speech-translation-box {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #d4edda 0%, #e6ffe6 100%);
+  font-size: 1.1rem;
+  color: #28a745;
+  font-weight: 600;
+  word-wrap: break-word;
+  border: 2px solid #c3e6cb;
+  line-height: 1.6;
+  animation: speech-slideInUp 0.5s ease-out;
+}
+
+.speech-to-text-page .translation-label {
+  display: block;
+  font-size: 0.9rem;
+  color: #1e7e34;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+/* Saved Speech Section */
+.speech-to-text-page .saved-speech-section {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: speech-slideInFromBottom 0.6s ease-out;
+}
+
+.speech-to-text-page .saved-speech-title {
+  color: #333;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.speech-to-text-page .saved-speech-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.speech-to-text-page .saved-speech-item {
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border-left: 4px solid #0088ff;
+  color: #333;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-left: 3rem;
+}
+
+.speech-to-text-page .saved-speech-item::before {
+  content: "💬";
+  position: absolute;
+  left: 1rem;
+  font-size: 1.2rem;
+}
+
+.speech-to-text-page .saved-speech-item:hover {
+  background: #e9ecef;
+  transform: translateX(5px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.speech-to-text-page .no-saved-speech {
+  text-align: center;
+  color: #999;
+  padding: 2rem;
+  font-style: italic;
+}
+
+/* Animations */
+@keyframes speech-slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes speech-slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes speech-slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes speech-slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .speech-to-text-page .deaf-talk-navbar {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .speech-to-text-page .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .speech-to-text-page .speech-container {
+    padding: 1rem 0.5rem;
+  }
+
+  .speech-to-text-page .speech-card,
+  .speech-to-text-page .instructions-card,
+  .speech-to-text-page .saved-speech-section {
+    padding: 1.5rem;
+  }
+
+  .speech-to-text-page .speech-title {
+    font-size: 1.4rem;
+  }
+
+  .speech-to-text-page .features-info {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .speech-to-text-page .saved-speech-title {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .speech-to-text-page .speech-content {
+    grid-template-columns: 300px 1fr;
+  }
+
+  .speech-to-text-page .instructions-card {
+    grid-row: 1 / 3;
+  }
+}

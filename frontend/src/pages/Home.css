@@ -1,0 +1,406 @@
+/* Home.css */
+
+/* Page Wrapper */
+.home-page {
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+/* Navbar */
+.deaf-talk-navbar {
+  background: linear-gradient(135deg, #7b68ee 0%, #6554d4 100%);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.accessibility-nav-badge {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+}
+.accessibility-nav-badge:hover{
+   background: rgba(12, 3, 83, 0.2);
+}
+
+/* Main Container */
+.home-container {
+  min-height: calc(100vh - 70px);
+  background: linear-gradient(135deg, #a8d8ea 0%, #7ec8e3 100%);
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated Background Icons */
+.bg-icon {
+  position: absolute;
+  font-size: 5rem;
+  opacity: 0.05;
+  animation: home-float 15s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.bg-icon:nth-child(1) {
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.bg-icon:nth-child(2) {
+  top: 70%;
+  right: 10%;
+  animation-delay: 3s;
+}
+
+.bg-icon:nth-child(3) {
+  top: 40%;
+  right: 15%;
+  animation-delay: 6s;
+}
+
+.bg-icon:nth-child(4) {
+  bottom: 20%;
+  left: 15%;
+  animation-delay: 9s;
+}
+
+@keyframes home-float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(10deg);
+  }
+}
+
+/* Main Card */
+.home-card {
+  background: white;
+  border-radius: 30px;
+  padding: 3rem 2.5rem;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  position: relative;
+  animation: home-slideUp 0.8s ease-out;
+  z-index: 1;
+}
+
+@keyframes home-slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Accessibility Badge on Card */
+.accessibility-badge {
+  position: absolute;
+  top: -15px;
+  right: 20px;
+  background: linear-gradient(135deg, #5cb85c 0%, #4cae4c 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(92, 184, 92, 0.3);
+}
+
+/* Title */
+.home-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #7b68ee, #6554d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  animation: home-fadeIn 1s ease-out 0.3s both;
+}
+
+/* Welcome Text - Animated Username */
+.welcome-text {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 1.5rem 0;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+  position: relative;
+  overflow: hidden;
+  animation: welcome-bounce 0.8s ease-out 0.5s both;
+}
+
+.welcome-text::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  animation: welcome-shine 3s infinite;
+}
+
+@keyframes welcome-bounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(-30px);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes welcome-shine {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+/* Subtitle */
+.home-subtitle {
+  color: #666;
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  animation: home-fadeIn 1s ease-out 0.6s both;
+}
+
+@keyframes home-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Buttons */
+.home-button {
+  width: 100%;
+  padding: 1.2rem 2rem;
+  margin: 0.75rem 0;
+  border: none;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  animation: home-fadeIn 1s ease-out both;
+}
+
+.btn-speech {
+  background: linear-gradient(135deg, #0088ff 0%, #0066cc 100%);
+  color: white;
+  animation-delay: 0.8s;
+}
+
+.btn-speech:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 136, 255, 0.4);
+}
+
+.btn-sign {
+  background: linear-gradient(135deg, #5cb85c 0%, #4cae4c 100%);
+  color: white;
+  animation-delay: 1s;
+}
+
+.btn-sign:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(92, 184, 92, 0.4);
+}
+
+.home-button:active {
+  transform: translateY(0);
+}
+
+/* Features Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid #f0f0f0;
+  animation: home-fadeIn 1s ease-out 1.2s both;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #e9ecef, #f8f9fa);
+}
+
+.feature-item-icon {
+  font-size: 2rem;
+}
+
+.feature-item-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #555;
+}
+
+/* Footer */
+.home-footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #f0f0f0;
+  color: #999;
+  font-size: 0.9rem;
+  animation: home-fadeIn 1s ease-out 1.4s both;
+}
+
+.home-footer::before {
+  content: '❤️';
+  margin-right: 0.5rem;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .deaf-talk-navbar {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .home-container {
+    padding: 1rem;
+  }
+
+  .home-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .home-title {
+    font-size: 2rem;
+  }
+
+  .welcome-text {
+    font-size: 1.1rem;
+    padding: 0.875rem 1.25rem;
+  }
+
+  .home-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .home-button {
+    font-size: 1.1rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .feature-item {
+    padding: 0.75rem;
+  }
+
+  .feature-item-icon {
+    font-size: 1.5rem;
+  }
+
+  .feature-item-text {
+    font-size: 0.85rem;
+  }
+
+  .bg-icon {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-title {
+    font-size: 1.75rem;
+  }
+
+  .welcome-text {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .features-grid {
+    gap: 0.5rem;
+  }
+}

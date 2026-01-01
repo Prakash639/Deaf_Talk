@@ -1,0 +1,33 @@
+/* App.css */
+
+/* 1. Global Reset: ESSENTIAL for full-window backgrounds */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  /* Set a default font family for a cleaner look */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 2. Global Background Layout */
+.app-background {
+  /* Use the soft, vibrant gradient across the entire application */
+  background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+  min-height: 100vh;
+  width: 100%;
+  
+  /* Use Flexbox to center content vertically and horizontally by default */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* 3. Global Card Styling (Ensures consistency) */
+/* If you use a class like 'app-card' on your Card elements */
+.app-card {
+  background-color: #ffffff;
+  border-radius: 20px !important;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15) !important;
+}
