@@ -4,7 +4,7 @@ Deaf Talk is an assistive communication system designed to bridge the gap betwee
 
 This project converts speech into text and also translates input into sign language representation, enabling inclusive and accessible communication.
 
-Project Overview
+🚀 Project Overview
 
 Communication barriers between hearing and speech-impaired individuals can limit daily interactions.
 
@@ -16,7 +16,7 @@ Display corresponding sign language representation
 
 Improve accessibility using modern web technologies
 
-Key Features
+✨ Key Features
 
 🎤 Real-Time Speech Recognition (Speech → Text)
 
@@ -30,12 +30,12 @@ Key Features
 
 📱 User-Friendly Design
 
-Tech Stack
+🛠️ Tech Stack
 Frontend
 
 React.js / HTML / CSS / JavaScript
 
-Backend 
+Backend (if implemented)
 
 Node.js
 
@@ -47,11 +47,11 @@ Web Speech API (Speech Recognition)
 
 Custom Sign Language Mapping System
 
-Database 
+Database (Optional)
 
-MySQL 
+MySQL
 
- Project Structure
+📂 Project Structure
 deaf-talk/
 │
 ├── client/                # Frontend
@@ -63,7 +63,7 @@ deaf-talk/
 │   └── server.js
 │
 └── README.md
-How It Works
+🔄 How It Works
 
 User clicks the microphone button
 
@@ -75,7 +75,7 @@ Text is displayed on the screen
 
 Corresponding sign language representation is shown
 
- Objectives
+🎯 Objectives
 
 Improve communication accessibility
 
@@ -85,7 +85,7 @@ Help bridge communication gaps
 
 Provide real-time assistive tools
 
- Future Enhancements
+📌 Future Enhancements
 
 Two-Way Communication (Sign to Speech)
 
