@@ -1,7 +1,6 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import "./SpeechToText.css";
 
 export default function SpeechToText() {
@@ -16,10 +15,6 @@ export default function SpeechToText() {
   const recognitionRef = useRef(null);
   const navigate = useNavigate();
 const [selectedSpeech, setSelectedSpeech] = useState("");
-const handleLogout = () => {
-  localStorage.removeItem("user_id"); // remove session
-  navigate("/login"); // redirect to login page
-};
   
   // Fetch saved speech texts on load
   useEffect(() => {
@@ -93,32 +88,24 @@ const handleLogout = () => {
     setListening(false);
   };
 
-  // Save speech text to backend
-  const saveSpeech = async (content) => {
-    const user_id = localStorage.getItem("user_id");
-    if (!user_id) return alert("User not logged in!");
-
+  // Save speech text to local storage
+  const saveSpeech = (content) => {
     try {
-      await axios.post("http://localhost:4000/api/speech/save", {
-        user_id,
-        text: content,
-      });
+      const history = JSON.parse(localStorage.getItem("speechHistory") || "[]");
+      const newItem = { id: Date.now(), content };
+      history.unshift(newItem); // add to beginning
+      localStorage.setItem("speechHistory", JSON.stringify(history));
       fetchSavedSpeech();
     } catch (err) {
       console.error(err);
     }
   };
 
-  // Get saved speech from backend
-  const fetchSavedSpeech = async () => {
-    const user_id = localStorage.getItem("user_id");
-    if (!user_id) return;
-
+  // Get saved speech from local storage
+  const fetchSavedSpeech = () => {
     try {
-      const res = await axios.get(
-        `http://localhost:4000/api/speech/list/${user_id}`
-      );
-      setSavedTexts(res.data);
+      const history = JSON.parse(localStorage.getItem("speechHistory") || "[]");
+      setSavedTexts(history);
     } catch (err) {
       console.error(err);
     }
@@ -132,7 +119,6 @@ const handleLogout = () => {
         <div className="navbar-brand">
           🧏‍♀️ Speech Detect
         </div>
-                   <button onClick={handleLogout} className="accessibility-nav-badge">Logout</button>
       </nav>
 
       {/* Main Container */}

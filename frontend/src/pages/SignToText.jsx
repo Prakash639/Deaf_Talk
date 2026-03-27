@@ -5,7 +5,6 @@ import * as tf from "@tensorflow/tfjs";
 import "@tensorflow/tfjs-backend-webgl";
 import * as handPoseDetection from "@tensorflow-models/hand-pose-detection";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import "./SignToText.css";
 
 export default function SignToText() {
@@ -17,10 +16,6 @@ export default function SignToText() {
   const [savedTexts, setSavedTexts] = useState([]);
   const navigate = useNavigate();
   const [lastSavedText, setLastSavedText] = useState("");
-const handleLogout = () => {
-  localStorage.removeItem("user_id"); // remove session
-  navigate("/login"); // redirect to login page
-};
   
   // Load HandPose model
   useEffect(() => {
@@ -171,35 +166,24 @@ const handleLogout = () => {
     });
   };
 
-  // Save sign to backend
-// Save sign to backend (correct format)
-const saveSign = async (text) => {
-  const user_id = localStorage.getItem("user_id");
-  if (!user_id) return;
-
-  try {
-    await axios.post("http://localhost:4000/api/sign/save", {
-      user_id,
-      text,  // <-- correct field required by backend
-    });
-
-    fetchSavedSigns();
-  } catch (err) {
-    console.error("Save error:", err);
-  }
-};
+  // Save sign to local storage
+  const saveSign = (text) => {
+    try {
+      const history = JSON.parse(localStorage.getItem("signHistory") || "[]");
+      const newItem = { id: Date.now(), content: text };
+      history.unshift(newItem); // add to beginning
+      localStorage.setItem("signHistory", JSON.stringify(history));
+      fetchSavedSigns();
+    } catch (err) {
+      console.error("Save error:", err);
+    }
+  };
 
   // FETCH SAVED SIGNS
-  const fetchSavedSigns = async () => {
-    const user_id = localStorage.getItem("user_id");
-    if (!user_id) return;
-
+  const fetchSavedSigns = () => {
     try {
-      const res = await axios.get(
-        `http://localhost:4000/api/sign/list/${user_id}`
-      );
-
-      setSavedTexts(res.data);
+      const history = JSON.parse(localStorage.getItem("signHistory") || "[]");
+      setSavedTexts(history);
     } catch (err) {
       console.error("Fetch error:", err);
     }
@@ -211,7 +195,6 @@ const saveSign = async (text) => {
         <div className="navbar-brand">
           🧏‍♀️ Hand Sence
         </div>
-      <button onClick={handleLogout} className="accessibility-nav-badge">Logout</button>
       </nav>
 
       {/* Main Container */}

@@ -7,10 +7,7 @@ export default function Home() {
   const navigate = useNavigate();
 
   const [userName, setUserName] = useState("");
-const handleLogout = () => {
-  localStorage.removeItem("user_id"); // remove session
-  navigate("/login"); // redirect to login page
-};
+
   useEffect(() => {
     const storedName = localStorage.getItem("user_name");
     setUserName(storedName);
@@ -22,10 +19,7 @@ const handleLogout = () => {
         <div className="navbar-brand">
           🧏‍♀️ Deaf Talk
         </div>
-         
-    <button onClick={handleLogout} className="accessibility-nav-badge">Logout</button>
-  
-          
+
         
       </nav>
 
